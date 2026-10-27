@@ -1,0 +1,44 @@
+{
+  "name": "openchamber-billion-context",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenChamber 扩展：一键打开本机 billion-context（bili）代理的 Web 控制台",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanjin0513/openchamber-billion-context.git"
+  },
+  "homepage": "https://github.com/seanjin0513/openchamber-billion-context#readme",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "@openchamber/sdk": "^2.5.2",
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.25.0"
+  },
+  "openchamber": {
+    "apiVersion": 1,
+    "engines": {
+      "openchamber": ">=2.5.0"
+    },
+    "contributes": {
+      "panel": {
+        "id": "bili-webui",
+        "name": "billion-context",
+        "icon": "icon.svg",
+        "entry": "panel/index.html"
+      },
+      "service": {
+        "entry": "service/main.js",
+        "runtime": "host",
+        "permissions": {
+          "exec": [
+            "bili"
+          ]
+        }
+      },
+      "attach": false
+    }
+  }
+}
